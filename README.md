@@ -5,7 +5,7 @@
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=wintercodenkjj" alt="wintercodenkjj" /></a> </p>
 
-<p align="left"> <a href="https://twitter.com/nguezet kenfack jordan junior" target="blank"><img src="https://img.shields.io/twitter/follow/nguezet kenfack jordan junior?logo=twitter&style=for-the-badge" alt="nguezet kenfack jordan junior" /></a> </p>
+<p align="left"> <a href="https://twitter.com/NguezetJordan" target="blank"><img src="https://img.shields.io/twitter/follow/NguezetJordan?logo=twitter&style=for-the-badge" alt="NguezetJordan" /></a> </p>
 
 - 🌱 I’m currently learning **Node.js,React.js,Flutter and Docker**
 
