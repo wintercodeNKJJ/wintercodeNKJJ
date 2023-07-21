@@ -13,7 +13,7 @@
 
 - 📫 How to reach me **kenfackjordanjunior@gmail.com**
 
-- 📄 Know about my experiences [resume](resume)
+- 📄 Know about my experiences [My Resume](https://github.com/wintercodeNKJJ/wintercodeNKJJ/blob/main/Nguezet_Kenfack%20Jordan%20Junior_Resume_16-07-2023-16-06-05.pdf)
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
