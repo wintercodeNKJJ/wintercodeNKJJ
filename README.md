@@ -1,12 +1,13 @@
 <p align="center"><img align="center" src="https://github.com/wintercodeNKJJ/wintercodeNKJJ/blob/main/Your%20paragraph%20text.png" alt="nguezet kenfack jordan junior" height="100%" width="100%" /></p>
-<h1 align="center">Hi 👋, I'm nguezet kenfack jordan junior</h1>
+<h1 align="center">Hi 👋, I'm Nguezet Kenfack Jordan Junior</h1>
 <h3 align="center">A passionate full stack developer from Cameroon</h3>
+<h3 align="center">I'm currently searching for a project to contribute on. so pleas link me if you got one</h3>
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=wintercodenkjj&label=Profile%20views&color=0e75b6&style=flat" alt="wintercodenkjj" /> </p>
+<p align="center"> <img src="https://komarev.com/ghpvc/?username=wintercodenkjj&label=Profile%20views&color=0e75b6&style=flat" alt="wintercodenkjj" /> </p>
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=wintercodenkjj" alt="wintercodenkjj" /></a> </p>
+<p align="center"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=wintercodenkjj" alt="wintercodenkjj" /></a> </p>
 
-<p align="left"> <a href="https://twitter.com/NguezetJordan" target="blank"><img src="https://img.shields.io/twitter/follow/NguezetJordan?logo=twitter&style=for-the-badge" alt="NguezetJordan" /></a> </p>
+<p align="center"> <a href="https://twitter.com/NguezetJordan" target="blank"><img src="https://img.shields.io/twitter/follow/NguezetJordan?logo=twitter&style=for-the-badge" alt="NguezetJordan" /></a> </p>
 
 - 🌱 I’m currently learning **Node.js,React.js,Flutter and Docker**
 
