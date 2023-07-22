@@ -1,4 +1,4 @@
-<p align="center"><img align="center" src="https://github.com/wintercodeNKJJ/wintercodeNKJJ/blob/main/Your%20paragraph%20text.gif" alt="nguezet kenfack jordan junior" height="100%" width="100%" /></p>
+<p align="center"><img align="center" src="https://github.com/wintercodeNKJJ/wintercodeNKJJ/blob/main/Your%20paragraph%20text.png" alt="nguezet kenfack jordan junior" height="100%" width="100%" /></p>
 <h1 align="center">Hi 👋, I'm nguezet kenfack jordan junior</h1>
 <h3 align="center">A passionate full stack developer from Cameroon</h3>
 
