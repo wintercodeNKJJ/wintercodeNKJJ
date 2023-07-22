@@ -1,3 +1,4 @@
+<p align="center"><img align="center" src="" alt="nguezet kenfack jordan junior" height="30" width="40" /></p>
 <h1 align="center">Hi 👋, I'm nguezet kenfack jordan junior</h1>
 <h3 align="center">A passionate full stack developer from Cameroon</h3>
 
