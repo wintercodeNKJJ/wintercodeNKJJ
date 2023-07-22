@@ -17,8 +17,8 @@
 
 - 📄 Know about my experiences [My Resume](https://github.com/wintercodeNKJJ/wintercodeNKJJ/blob/main/Nguezet_Kenfack%20Jordan%20Junior_Resume_16-07-2023-16-06-05.pdf)
 
-<h3 align="left">Connect with me:</h3>
-<p align="left">
+<h3 align="center">Connect with me:</h3>
+<p align="center">
 <a href="https://twitter.com/nguezet kenfack jordan junior" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="nguezet kenfack jordan junior" height="30" width="40" /></a>
 <a href="https://linkedin.com/in/jordan kenfack" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="jordan kenfack" height="30" width="40" /></a>
 <a href="https://stackoverflow.com/users/nguezet kenfack jordan junior" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/stack-overflow.svg" alt="nguezet kenfack jordan junior" height="30" width="40" /></a>
