@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kenfack Jordan Junior — Full-stack engineer &amp; technical lead</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#13161B;
+    --panel:#1A1E25;
+    --panel-2:#1E232B;
+    --line:#2B313B;
+    --line-soft:#20252D;
+    --text:#E9E6DC;
+    --text-dim:#9198A3;
+    --text-faint:#5B626D;
+    --accent:#E3A63E;
+    --accent-dim:#B98533;
+    --accent-soft:rgba(227,166,62,0.12);
+    --sans: 'IBM Plex Sans', -apple-system, sans-serif;
+    --mono: 'IBM Plex Mono', 'SFMono-Regular', monospace;
+    --serif: 'IBM Plex Serif', serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  ::selection{background:var(--accent); color:#13161B;}
+
+  .grain{
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size:64px 64px;
+    opacity:0.35;
+    mask-image:radial-gradient(ellipse 80% 60% at 20% 10%, black 0%, transparent 70%);
+  }
+
+  .shell{
+    position:relative; z-index:1;
+    display:grid;
+    grid-template-columns:260px 1fr;
+    max-width:1180px;
+    margin:0 auto;
+    min-height:100vh;
+  }
+
+  /* --- LEFT RAIL --- */
+  .rail{
+    border-right:1px solid var(--line);
+    padding:48px 28px 48px 0;
+    position:sticky; top:0; align-self:start;
+    height:100vh;
+    display:flex; flex-direction:column;
+  }
+  .rail-mark{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--accent);
+    letter-spacing:0.02em;
+    margin-bottom:6px;
+  }
+  .rail-name{
+    font-size:19px;
+    font-weight:600;
+    line-height:1.3;
+    margin-bottom:2px;
+  }
+  .rail-role{
+    font-size:13px;
+    color:var(--text-dim);
+    margin-bottom:36px;
+  }
+  .rail nav{display:flex; flex-direction:column; gap:2px; margin-bottom:auto;}
+  .rail nav a{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--text-dim);
+    text-decoration:none;
+    padding:7px 0;
+    display:flex;
+    gap:10px;
+    border-left:2px solid transparent;
+    padding-left:12px;
+    margin-left:-12px;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .rail nav a:hover, .rail nav a.active{
+    color:var(--text);
+    border-left-color:var(--accent);
+  }
+  .rail nav a span.idx{color:var(--text-faint);}
+  .rail-foot{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--text-faint);
+    line-height:1.7;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+  }
+  .rail-foot a{color:var(--text-dim); text-decoration:none;}
+  .rail-foot a:hover{color:var(--accent);}
+
+  /* --- MAIN --- */
+  main{padding:64px 56px 120px 56px;}
+  section{padding-top:88px; scroll-margin-top:40px;}
+  section:first-of-type{padding-top:0;}
+
+  .sheet-label{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--text-faint);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+  }
+  .sheet-label::after{
+    content:'';
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+
+  h1{
+    font-size:44px;
+    font-weight:600;
+    line-height:1.15;
+    letter-spacing:-0.01em;
+    max-width:15ch;
+  }
+  h1 em{
+    font-style:italic;
+    font-family:var(--serif);
+    color:var(--accent);
+    font-weight:400;
+  }
+  .lede{
+    margin-top:22px;
+    font-size:17px;
+    color:var(--text-dim);
+    max-width:56ch;
+    line-height:1.75;
+  }
+  .lede strong{color:var(--text); font-weight:500;}
+
+  .titleblock{
+    margin-top:44px;
+    border:1px solid var(--line);
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+  }
+  .titleblock div{
+    padding:14px 18px;
+    border-right:1px solid var(--line);
+  }
+  .titleblock div:last-child{border-right:none;}
+  .titleblock .k{
+    font-family:var(--mono);
+    font-size:10.5px;
+    color:var(--text-faint);
+    letter-spacing:0.06em;
+    margin-bottom:6px;
+  }
+  .titleblock .v{
+    font-size:14px;
+    color:var(--text);
+  }
+
+  h2{
+    font-size:26px;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin-bottom:20px;
+  }
+
+  #approach .lede{max-width:64ch;}
+  #approach .lede + .lede{margin-top:16px;}
+
+  /* --- PROJECTS --- */
+  .project{
+    border:1px solid var(--line);
+    background:var(--panel);
+    margin-bottom:20px;
+    display:grid;
+    grid-template-columns:1fr;
+  }
+  .project-head{
+    padding:22px 26px 18px 26px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+    border-bottom:1px solid var(--line);
+  }
+  .project-name{font-size:18px; font-weight:600;}
+  .project-tag{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--accent);
+    border:1px solid var(--accent-dim);
+    background:var(--accent-soft);
+    padding:3px 9px;
+    white-space:nowrap;
+    flex-shrink:0;
+  }
+  .project-tags{display:flex; gap:8px; flex-shrink:0; align-items:flex-start; flex-wrap:wrap; justify-content:flex-end;}
+  .project-tag.dev{
+    color:var(--text-dim);
+    border-color:var(--line);
+    background:transparent;
+  }
+  .project-head-main{display:flex; flex-direction:column; gap:6px;}
+  .project-live{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--text-dim);
+    text-decoration:none;
+    border-bottom:1px solid var(--line);
+    width:fit-content;
+    padding-bottom:1px;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .project-live:hover{color:var(--accent); border-color:var(--accent-dim);}
+  .project-body{padding:20px 26px 24px 26px;}
+  .project-desc{
+    font-size:14.5px;
+    color:var(--text-dim);
+    line-height:1.7;
+    max-width:64ch;
+    margin-bottom:16px;
+  }
+  .project-desc strong{color:var(--text); font-weight:500;}
+  .project-stack{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .project-stack span{
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--text-dim);
+    border:1px solid var(--line);
+    padding:4px 9px;
+  }
+
+  .project.minor{grid-template-columns:1fr; }
+  .minor-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+  }
+  .minor-row .project{margin-bottom:0;}
+
+  @media(max-width:860px){
+    .minor-row{grid-template-columns:1fr;}
+  }
+
+  /* --- STACK --- */
+  .stack-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .stack-cell{background:var(--bg); padding:22px 24px;}
+  .stack-cell .k{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--accent);
+    letter-spacing:0.04em;
+    margin-bottom:12px;
+  }
+  .stack-cell .items{
+    font-size:14px;
+    color:var(--text-dim);
+    line-height:1.9;
+  }
+  @media(max-width:640px){.stack-grid{grid-template-columns:1fr;}}
+
+  /* --- EXPERIENCE --- */
+  .exp-row{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:24px;
+    padding:20px 0;
+    border-top:1px solid var(--line);
+  }
+  .exp-row:last-child{border-bottom:1px solid var(--line);}
+  .exp-date{
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--text-faint);
+    padding-top:2px;
+  }
+  .exp-title{font-size:15.5px; font-weight:500; margin-bottom:4px;}
+  .exp-org{font-size:13.5px; color:var(--accent-dim); margin-bottom:8px;}
+  .exp-desc{font-size:14px; color:var(--text-dim); line-height:1.7; max-width:60ch;}
+  @media(max-width:640px){.exp-row{grid-template-columns:1fr; gap:6px;}}
+
+  /* --- EDUCATION --- */
+  .edu-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding:14px 0;
+    border-top:1px solid var(--line);
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .edu-row:last-child{border-bottom:1px solid var(--line);}
+  .edu-title{font-size:14.5px; font-weight:500;}
+  .edu-org{font-size:13px; color:var(--text-dim);}
+  .edu-date{font-family:var(--mono); font-size:12px; color:var(--text-faint); white-space:nowrap;}
+
+  /* --- CONTACT --- */
+  #contact{padding-bottom:0;}
+  .contact-panel{
+    border:1px solid var(--line);
+    padding:44px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:28px;
+  }
+  .contact-panel h2{margin-bottom:8px;}
+  .contact-panel p{color:var(--text-dim); font-size:14.5px; max-width:42ch;}
+  .contact-links{display:flex; flex-direction:column; gap:10px; text-align:right;}
+  .contact-links a{
+    font-family:var(--mono);
+    font-size:13.5px;
+    text-decoration:none;
+    color:var(--text);
+    border-bottom:1px solid var(--line);
+    padding-bottom:2px;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .contact-links a:hover{color:var(--accent); border-color:var(--accent-dim);}
+
+  footer{
+    margin-top:60px;
+    padding-top:22px;
+    border-top:1px solid var(--line);
+    display:flex;
+    justify-content:space-between;
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--text-faint);
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  @media(max-width:900px){
+    .shell{grid-template-columns:1fr;}
+    .rail{
+      position:relative; height:auto; border-right:none; border-bottom:1px solid var(--line);
+      padding:28px 24px;
+    }
+    .rail nav{flex-direction:row; flex-wrap:wrap; gap:14px; margin-bottom:0;}
+    .rail nav a{padding-left:0; margin-left:0; border-left:none; border-bottom:2px solid transparent; padding-bottom:4px;}
+    .rail nav a:hover, .rail nav a.active{border-left-color:transparent; border-bottom-color:var(--accent);}
+    .rail-foot{display:none;}
+    main{padding:48px 24px 90px 24px;}
+    h1{font-size:32px;}
+    .titleblock{grid-template-columns:1fr 1fr;}
+    .titleblock div:nth-child(2){border-right:none;}
+  }
+
+  #hero-diagram{opacity:0; transition:opacity .6s ease;}
+  #hero-diagram.in{opacity:1;}
+  #hero-diagram path{
+    stroke-dasharray:900;
+    stroke-dashoffset:900;
+    animation:draw 2.2s ease forwards;
+  }
+  @keyframes draw{to{stroke-dashoffset:0;}}
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<div class="shell">
+  <aside class="rail">
+    <div class="rail-mark">KJJ / 001</div>
+    <div class="rail-name">Kenfack Jordan Junior</div>
+    <div class="rail-role">Full-stack engineer, technical lead</div>
+    <nav id="nav">
+      <a href="#approach"><span class="idx">01</span> Approach</a>
+      <a href="#work"><span class="idx">02</span> Selected work</a>
+      <a href="#stack"><span class="idx">03</span> Stack</a>
+      <a href="#experience"><span class="idx">04</span> Experience</a>
+      <a href="#education"><span class="idx">05</span> Education</a>
+      <a href="#contact"><span class="idx">06</span> Contact</a>
+    </nav>
+    <div class="rail-foot">
+      Douala, Cameroon<br>
+      FR / EN — DE (B2)<br>
+      <a href="mailto:kenfackjordanjunior@gmail.com">kenfackjordanjunior@gmail.com</a>
+    </div>
+  </aside>
+
+  <main>
+    <section id="hero">
+      <div class="sheet-label">SHEET 01 / 06 — OVERVIEW</div>
+      <h1>I build the whole thing, not just <em>the part that's fun.</em></h1>
+      <p class="lede">
+        Technical Lead at <strong>KrestDev</strong>, moving between architecture diagrams, actual code,
+        and infrastructure. React and Next.js on one side, Node.js and NestJS on the other, Docker and
+        CI/CD holding it together. Most of the interesting problems aren't "can this be built" —
+        they're "will this still work in six months, under real traffic, with real users who don't
+        read the docs."
+      </p>
+      <div class="titleblock">
+        <div><div class="k">LOCATION</div><div class="v">Douala, Cameroon</div></div>
+        <div><div class="k">ROLE</div><div class="v">Technical Lead, KrestDev</div></div>
+        <div><div class="k">FOCUS</div><div class="v">Full-stack + DevOps</div></div>
+        <div><div class="k">MARKET</div><div class="v">Central Africa / XAF</div></div>
+      </div>
+    </section>
+
+    <section id="approach">
+      <div class="sheet-label">SHEET 02 / 06 — APPROACH</div>
+      <h2>Built for real conditions, not the tutorial</h2>
+      <p class="lede">
+        I've spent the last few years building for the Cameroonian market specifically — which means
+        designing around <strong>Mobile Money instead of Stripe</strong>, <strong>XAF instead of USD</strong>,
+        and <strong>WhatsApp instead of email</strong>, because that's how people here actually get things
+        done. It's a different set of constraints than most tutorials prepare you for, and I've learned
+        a lot from working inside them.
+      </p>
+      <p class="lede">
+        I'm not chasing every new framework — I care more about whether something is well-built than
+        whether it's trendy. If a project needs a document workflow system with 100+ endpoints and a
+        proper permission model, or an AI pipeline that reviews its own output before publishing, I'll
+        take the time to think it through rather than rush a version one.
+      </p>
+    </section>
+
+    <section id="work">
+      <div class="sheet-label">SHEET 03 / 06 — SELECTED WORK</div>
+      <h2>Projects</h2>
+
+      <div class="project">
+        <div class="project-head">
+          <div class="project-name">ChapChap</div>
+          <div class="project-tags">
+            <div class="project-tag">Architecture &amp; product design</div>
+            <div class="project-tag dev">In development</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">
+            A nationwide intercity bus ticketing SaaS covering three distinct applications —
+            passenger booking, transport provider management, and platform administration.
+            Led the full technical design phase: <strong>arc42 and C4 architecture documentation</strong>,
+            ERDs and sequence diagrams for the core booking flows, a complete API endpoint catalog,
+            and an SDLC breakdown for implementation.
+          </p>
+          <div class="project-stack">
+            <span>NestJS</span><span>Next.js</span><span>PostgreSQL</span><span>Prisma</span><span>C4 model</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <div class="project-head-main">
+            <div class="project-name">CREAPP-Diffusion</div>
+            <a class="project-live" href="https://creaconsult-app.com/connexion" target="_blank" rel="noopener">creaconsult-app.com ↗</a>
+          </div>
+          <div class="project-tags">
+            <div class="project-tag">Multi-tenant platform</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">
+            A multi-tenant document circulation and case management platform built for CREACONSULT.
+            Produced a full business analysis and technical design suite — <strong>73 functional and
+            22 non-functional requirements</strong>, a 28-entity data model with RBAC/ABAC and configurable
+            workflow circuits, and a ~115-endpoint API catalog. Set up CI/CD covering lint, typecheck,
+            tests, schema validation, and SAST with Semgrep; deployed on a VPS via Dokploy and Traefik.
+          </p>
+          <div class="project-stack">
+            <span>Next.js</span><span>NestJS</span><span>PostgreSQL</span><span>Prisma</span><span>Redis / BullMQ</span><span>S3-compatible storage</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <div class="project-head-main">
+            <div class="project-name">Krest Holding — Corporate Portal</div>
+            <a class="project-live" href="https://test.krestholding.com/" target="_blank" rel="noopener">test.krestholding.com ↗</a>
+          </div>
+          <div class="project-tags">
+            <div class="project-tag">Architecture &amp; build</div>
+            <div class="project-tag dev">In development (staging)</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">
+            The corporate portal for KrestHolding — the group's public site covering its
+            investment model, holdings, impact, and careers. Produced the architecture
+            documentation and built the site as a <strong>Payload CMS-powered</strong> content
+            platform, currently live on staging ahead of launch.
+          </p>
+          <div class="project-stack">
+            <span>Next.js</span><span>Payload CMS</span><span>PostgreSQL / Drizzle</span><span>S3</span><span>Dokploy</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <div class="project-name">Restova</div>
+          <div class="project-tag">Architectural restructuring</div>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">
+            A 40-module restaurant management SaaS for the Cameroonian market. Led a major
+            architectural restructuring to make <strong>Organization the central aggregate root</strong>,
+            producing a restructured Prisma schema, seed data, and AI-directed migration prompts
+            for the rebuild.
+          </p>
+          <div class="project-stack">
+            <span>PostgreSQL</span><span>Prisma</span><span>Domain modelling</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <div class="project-name">Njangi Tracker Suite</div>
+          <div class="project-tag">Product in development</div>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">
+            A phased product for rotating savings groups (njangi/tontine) in Cameroon:
+            <strong>MesNjangis</strong>, a single-user personal tracker with no group buy-in needed, followed
+            by <strong>Njangi+</strong>, a shared group ledger and coordination tool. Built offline-first in
+            React Native, syncing a local database with PostgreSQL once connectivity returns.
+          </p>
+          <div class="project-stack">
+            <span>React Native</span><span>PostgreSQL</span><span>Prisma</span><span>Offline-first sync</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <div class="project-name">Social content automation agent</div>
+          <div class="project-tag">Internal tooling</div>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">
+            A LangGraph.js system that researches topics, drafts platform-specific content for
+            Facebook, Instagram, X, LinkedIn, TikTok, and Medium, gathers media, pauses for
+            <strong>human-in-the-loop review</strong>, and publishes through each platform's API. Built and
+            debugged a custom LangGraph HTTP server to support the review workflow.
+          </p>
+          <div class="project-stack">
+            <span>LangGraph.js</span><span>TypeScript</span><span>Node.js</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="minor-row">
+        <div class="project minor">
+          <div class="project-head">
+            <div class="project-name">EatOrbit</div>
+            <div class="project-tag">Freelance</div>
+          </div>
+          <div class="project-body">
+            <p class="project-desc">
+              Restaurant visibility and ordering platform — Laravel backend, React frontend,
+              multi-restaurant schema supporting orders and reservations. Built solo, requirements
+              through deployment.
+            </p>
+            <div class="project-stack"><span>Laravel</span><span>React</span><span>MySQL</span></div>
+          </div>
+        </div>
+        <div class="project minor">
+          <div class="project-head">
+            <div class="project-name">Vortex Gaming</div>
+            <div class="project-tag">Freelance</div>
+          </div>
+          <div class="project-body">
+            <p class="project-desc">
+              Gaming platform with tournaments, an online store, and player services. Owned
+              architecture through frontend delivery, including a competition management system.
+            </p>
+            <div class="project-stack"><span>Angular</span><span>MySQL</span><span>Docker</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="minor-row">
+        <div class="project minor">
+          <div class="project-head">
+            <div class="project-head-main">
+              <div class="project-name">Le Carino Pizzeria</div>
+              <a class="project-live" href="https://le-carino.com/" target="_blank" rel="noopener">le-carino.com ↗</a>
+            </div>
+            <div class="project-tag">Live</div>
+          </div>
+          <div class="project-body">
+            <p class="project-desc">
+              Online ordering and reservation platform for a pizzeria chain in Yaoundé —
+              catalogue, cart, and table reservations, backed by KrestDev's restaurant
+              platform stack.
+            </p>
+            <div class="project-stack"><span>Backend / API</span><span>PostgreSQL</span></div>
+          </div>
+        </div>
+        <div class="project minor">
+          <div class="project-head">
+            <div class="project-head-main">
+              <div class="project-name">Saga Africa</div>
+              <a class="project-live" href="https://saga-africa.com/" target="_blank" rel="noopener">saga-africa.com ↗</a>
+            </div>
+            <div class="project-tag">Live</div>
+          </div>
+          <div class="project-body">
+            <p class="project-desc">
+              Ordering and reservation platform for Saga Africa, a Douala restaurant
+              rated Best Restaurant 2026 on Restaurant Guru — built on the same
+              catalogue and booking system as Le Carino.
+            </p>
+            <div class="project-stack"><span>Backend / API</span><span>PostgreSQL</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="minor-row">
+        <div class="project minor">
+          <div class="project-head">
+            <div class="project-head-main">
+              <div class="project-name">67 Design &amp; Build</div>
+              <a class="project-live" href="https://67designandbuild.com/" target="_blank" rel="noopener">67designandbuild.com ↗</a>
+            </div>
+            <div class="project-tag">Live</div>
+          </div>
+          <div class="project-body">
+            <p class="project-desc">
+              Corporate site for a civil engineering and public works company.
+              Produced the architecture documentation and built the platform on
+              Next.js with Payload CMS.
+            </p>
+            <div class="project-stack"><span>Next.js</span><span>Payload CMS</span><span>Dokploy</span></div>
+          </div>
+        </div>
+        <div class="project minor">
+          <div class="project-head">
+            <div class="project-head-main">
+              <div class="project-name">TyJu Infosports</div>
+              <a class="project-live" href="https://www.tyjuinfosport.com/" target="_blank" rel="noopener">tyjuinfosport.com ↗</a>
+            </div>
+            <div class="project-tag">Live</div>
+          </div>
+          <div class="project-body">
+            <p class="project-desc">
+              A sports news platform covering African and Cameroonian sport —
+              football, handball, basketball, and continental competitions like
+              the CAN and CHAN.
+            </p>
+            <div class="project-stack"><span>Web platform</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="minor-row">
+        <div class="project minor">
+          <div class="project-head">
+            <div class="project-head-main">
+              <div class="project-name">COTRAF</div>
+              <a class="project-live" href="https://cotraf-cm.com/" target="_blank" rel="noopener">cotraf-cm.com ↗</a>
+            </div>
+            <div class="project-tag">Live</div>
+          </div>
+          <div class="project-body">
+            <p class="project-desc">
+              Corporate site for COTRAF, an industrial and petroleum transport company in
+              Douala — services, fleet, and client relations for a fair-trade transport
+              and logistics operator.
+            </p>
+            <div class="project-stack"><span>Corporate site</span></div>
+          </div>
+        </div>
+        <div class="project minor">
+          <div class="project-head">
+            <div class="project-head-main">
+              <div class="project-name">Fondation Jeanne Caroline Mfege</div>
+              <a class="project-live" href="https://www.fondationjeannecarolinemfege.org/fr" target="_blank" rel="noopener">fondationjeannecarolinemfege.org ↗</a>
+            </div>
+            <div class="project-tag">Live</div>
+          </div>
+          <div class="project-body">
+            <p class="project-desc">
+              Site for a Cameroonian health foundation working on cancer screening and
+              healthcare access for rural communities — mission, donation, and gallery
+              pages tracking its medical centre under construction.
+            </p>
+            <div class="project-stack"><span>Corporate site</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="minor-row">
+        <div class="project minor">
+          <div class="project-head">
+            <div class="project-head-main">
+              <div class="project-name">Loumo</div>
+            </div>
+            <div class="project-tag dev">API</div>
+          </div>
+          <div class="project-body">
+            <p class="project-desc">
+              Backend API for Loumo, an e-commerce shop platform — RESTful endpoints for
+              users, authentication, and business logic, documented with Swagger.
+            </p>
+            <div class="project-stack"><span>Node.js</span><span>MongoDB</span><span>JWT auth</span></div>
+          </div>
+        </div>
+        <div class="project minor">
+          <div class="project-head">
+            <div class="project-head-main">
+              <div class="project-name">Alubassa</div>
+            </div>
+            <div class="project-tag dev">Client project</div>
+          </div>
+          <div class="project-body">
+            <p class="project-desc">
+              Web platform built for Alubassa, a Cameroonian aluminium goods manufacturer
+              and Alucam group subsidiary.
+            </p>
+            <div class="project-stack"><span>Corporate site</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack">
+      <div class="sheet-label">SHEET 04 / 06 — STACK</div>
+      <h2>What I build with</h2>
+      <div class="stack-grid">
+        <div class="stack-cell">
+          <div class="k">FRONTEND</div>
+          <div class="items">React · Next.js · Angular · TypeScript · Tailwind CSS</div>
+        </div>
+        <div class="stack-cell">
+          <div class="k">BACKEND</div>
+          <div class="items">Node.js · NestJS · Express · REST API design</div>
+        </div>
+        <div class="stack-cell">
+          <div class="k">DATA &amp; ARCHITECTURE</div>
+          <div class="items">PostgreSQL · MySQL · Prisma ORM · C4 model · arc42 · UML / Merise</div>
+        </div>
+        <div class="stack-cell">
+          <div class="k">DEVOPS &amp; INFRASTRUCTURE</div>
+          <div class="items">Docker · Kubernetes · GitHub Actions · Traefik · Redis / BullMQ</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="sheet-label">SHEET 05 / 06 — EXPERIENCE</div>
+      <h2>Path so far</h2>
+
+      <div class="exp-row">
+        <div class="exp-date">Dec 2024 —<br>Present</div>
+        <div>
+          <div class="exp-title">Full Stack Developer / Technical Lead</div>
+          <div class="exp-org">KrestDev · Douala</div>
+          <div class="exp-desc">Own full-stack architecture and delivery across KrestDev's web applications — frontend, backend, APIs, databases, infrastructure, and deployment standards.</div>
+        </div>
+      </div>
+      <div class="exp-row">
+        <div class="exp-date">May 2024 —<br>Dec 2024</div>
+        <div>
+          <div class="exp-title">Backend and DevOps Developer</div>
+          <div class="exp-org">KrestDev · Douala V</div>
+          <div class="exp-desc">Built backend services across multiple products, including an AI report generator; managed containerisation, reverse-proxy config, and CI/CD.</div>
+        </div>
+      </div>
+      <div class="exp-row">
+        <div class="exp-date">Mar 2024 —<br>May 2024</div>
+        <div>
+          <div class="exp-title">Back End Developer</div>
+          <div class="exp-org">KrestDev · Douala V</div>
+          <div class="exp-desc">Built backend services for several business applications, designing REST APIs and business logic in collaboration with frontend teams.</div>
+        </div>
+      </div>
+      <div class="exp-row">
+        <div class="exp-date">Jan 2023 —<br>Aug 2024</div>
+        <div>
+          <div class="exp-title">Full Stack Engineer, Freelance</div>
+          <div class="exp-org">Africa Systems / walkerOS</div>
+          <div class="exp-desc">IoT camera integration and real-time fleet tracking for Africa Systems; contributed to walkerOS, an open-source privacy-centric data collection platform.</div>
+        </div>
+      </div>
+      <div class="exp-row">
+        <div class="exp-date">Jun 2022 —<br>Jan 2024</div>
+        <div>
+          <div class="exp-title">Full Stack Developer, Freelance</div>
+          <div class="exp-org">Vortex Gaming</div>
+          <div class="exp-desc">Owned technical execution end-to-end for a gaming platform combining e-commerce, tournaments, and customer service.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="sheet-label">SHEET 06 / 06 — EDUCATION</div>
+      <h2>Education &amp; certifications</h2>
+      <div class="edu-row">
+        <div>
+          <div class="edu-title">Master's Degree, Information Systems Engineering and Connected Services</div>
+          <div class="edu-org">Université de Dschang</div>
+        </div>
+        <div class="edu-date">Oct 2023 – Dec 2025</div>
+      </div>
+      <div class="edu-row">
+        <div>
+          <div class="edu-title">Bachelor's Degree, Computer Science</div>
+          <div class="edu-org">Université de Dschang</div>
+        </div>
+        <div class="edu-date">Oct 2020 – Jul 2023</div>
+      </div>
+      <div class="edu-row">
+        <div>
+          <div class="edu-title">Zertifikat B2, German Language and Literature</div>
+          <div class="edu-org">Goethe-Institut Kamerun</div>
+        </div>
+        <div class="edu-date">Sep 2018 – 2020</div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="sheet-label">END OF SHEET</div>
+      <div class="contact-panel">
+        <div>
+          <h2>Let's talk shop.</h2>
+          <p>Based in Douala, working in French and English. Happy to hear about what you're building.</p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:kenfackjordanjunior@gmail.com">kenfackjordanjunior@gmail.com</a>
+          <a href="tel:+237657071178">+237 657 071 178</a>
+          <a href="https://www.linkedin.com/in/nguezetkenfack-jordan-junior" target="_blank" rel="noopener">linkedin.com/in/nguezetkenfack-jordan-junior</a>
+        </div>
+      </div>
+      <footer>
+        <span>© 2026 Kenfack Jordan Junior</span>
+        <span>Douala, Cameroon</span>
+      </footer>
+    </section>
+  </main>
+</div>
+
+<script>
+  const links = document.querySelectorAll('#nav a');
+  const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href')));
+  function onScroll(){
+    let idx = 0;
+    const y = window.scrollY + 120;
+    sections.forEach((s,i) => { if (s && s.offsetTop <= y) idx = i; });
+    links.forEach((a,i) => a.classList.toggle('active', i === idx));
+  }
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+</script>
+
+</body>
+</html>
